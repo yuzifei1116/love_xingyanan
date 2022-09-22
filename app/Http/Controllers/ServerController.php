@@ -67,7 +67,9 @@ class ServerController extends Controller
         
         $app = Factory::officialAccount($config);
 
-        $response = $app->oauth->user();
-        dd($response);
+        $response = $app->oauth;
+
+        $user = $response->user();
+        dd($user);
     }
 }
