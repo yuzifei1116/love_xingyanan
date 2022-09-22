@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::any('/server', 'ServerController@server');
+
+Route::any('/user', 'ServerController@user');
