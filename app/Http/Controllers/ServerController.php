@@ -66,5 +66,9 @@ class ServerController extends Controller
         ];
         
         $app = Factory::officialAccount($config);
+
+        $response = $app->oauth->scopes(['snsapi_userinfo'])
+                          ->redirect();
+        dd($response);
     }
 }
