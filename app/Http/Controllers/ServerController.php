@@ -25,7 +25,7 @@ class ServerController extends Controller
                     return '收到事件消息';
                     break;
                 case 'text':
-                    return '收到文字消息';
+                    return '我是邢亚楠';
                     break;
                 case 'image':
                     return '收到图片消息';
