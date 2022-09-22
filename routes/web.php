@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/server', 'ServerController@server');
+Route::any('/server', 'ServerController@server');
