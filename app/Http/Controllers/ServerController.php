@@ -16,13 +16,11 @@ class ServerController extends Controller
             // 'app_id' => 'wx461c8601b484bd03',
             // 'secret' => '58567cc5411fe20a7d105059d283b571',
             'secret' => '75c523a900af69e3ad910647ccaf7c24',
-            'token' => 'yuzifei'
+            'token' => 'test'
         ];
         
         $app = Factory::officialAccount($config);
         
-        $response = $app->server->serve();
-        // dd($response);
-        return $response;
+        return $app->server->serve();
     }
 }
