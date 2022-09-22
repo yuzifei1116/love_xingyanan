@@ -15,7 +15,6 @@ class ServerController extends Controller
             'app_id' => 'wx440170b2078e530b',
             'secret' => '75c523a900af69e3ad910647ccaf7c24',
             'token' => 'lovexingyanan',
-            'EncodingAESKey'=>'ta4CwdNTBH963esAy9CUyA4jgT6LVUbMJ4GyS6FuGs8'
             //...
         ];
         
