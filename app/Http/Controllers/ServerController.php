@@ -20,6 +20,7 @@ class ServerController extends Controller
         $app = Factory::officialAccount($config);
 
         $app->server->push(function ($message) {
+            dd($message);
             switch ($message['MsgType']) {
                 case 'event':
                     return '收到事件消息';
