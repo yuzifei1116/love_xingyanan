@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/server', 'ServerController@server');
+// 
+Route::any('/server', 'ServerController@server');

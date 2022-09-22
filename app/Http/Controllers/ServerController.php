@@ -21,7 +21,7 @@ class ServerController extends Controller
         $app = Factory::officialAccount($config);
         
         $response = $app->server->serve();
-    
+        // dd($response);
         return $response;
     }
 }
