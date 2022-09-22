@@ -20,7 +20,6 @@ class ServerController extends Controller
         $app = Factory::officialAccount($config);
 
         $app->server->push(function ($message) {
-            dd($message);
             switch ($message['MsgType']) {
                 case 'event':
                     return '收到事件消息';
@@ -60,6 +59,12 @@ class ServerController extends Controller
     public function user()
     {
         # code...
-        dd();
+        $config = [
+            'app_id' => 'wx440170b2078e530b',
+            'secret' => '75c523a900af69e3ad910647ccaf7c24',
+            'token' => 'test'
+        ];
+        
+        $app = Factory::officialAccount($config);
     }
 }
