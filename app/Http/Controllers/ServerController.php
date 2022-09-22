@@ -14,7 +14,7 @@ class ServerController extends Controller
         $config = [
             'app_id' => 'wx440170b2078e530b',
             'secret' => '75c523a900af69e3ad910647ccaf7c24',
-            'token' => 'lovexingyanan',
+            'token' => 'echostr',
             //...
         ];
         
