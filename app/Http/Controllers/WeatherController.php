@@ -16,7 +16,10 @@ class WeatherController extends Controller
     {
         # code...
         $hour = date('H', time());
-        // Cache::forget('weather');
+        $cache_hour = Cache::get('hour');
+        if($hour != $cache_hour) {
+            Cache::forget('weather');
+        }
         if (Cache::get('weather')) {
             $data = Cache::get('weather');
         } else {
@@ -31,6 +34,7 @@ class WeatherController extends Controller
                     $h = '0' . $h;
                 }
                 if ($h == $hour) {
+                    Cache::put('hour', $h, 600);
                     $data['now_weather'] = $v;
                     $data['now'] = $hour.'点';
                 }
