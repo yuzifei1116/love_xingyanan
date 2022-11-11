@@ -34,7 +34,7 @@ class WeatherController extends Controller
                     $data['now_weather'] = $v;
                 }
             }
-            Cache::put('weather', $data, 3600);
+            Cache::put('weather', $data, 300);
         }
         return response()->json(['success' => ['message' => '获取成功!', 'data' => $data]]);
     }
