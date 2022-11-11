@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -14,11 +15,26 @@ class WeatherController extends Controller
     public function getWeather(Request $request)
     {
         # code...
+        $hour = date('H',time());
         if(Cache::get('weather')) {
             $data = Cache::get('weather');
         } else {
             $url = 'https://v0.yiketianqi.com/api?unescape=1&version=v9&appid=94184759&appsecret=pk7EJOLz&cityid=101010700&city=昌平';
             $data = $this->weather($url);
+            // 循环小时天气 组成实时气温
+            foreach ($data['data'] as $key => $value) {
+                # code...
+                foreach ($value['hours'] as $k => $v) {
+                    # code...
+                    $h = intval($v['hours']);
+                    if($h < 10) {
+                        $h = '0'.$h;
+                    }
+                    if($h == $hour) {
+                        $data['data']['now_weather'] = $v;
+                    }
+                }
+            }
             Cache::put('weather',$data,3600);
         }
         return response()->json(['success'=>['message' => '获取成功!', 'data' => $data]]);
