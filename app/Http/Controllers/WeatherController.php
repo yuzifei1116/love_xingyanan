@@ -16,7 +16,6 @@ class WeatherController extends Controller
     {
         # code...
         $hour = date('H', time());
-        Cache::forget('weather');
         if (Cache::get('weather')) {
             $data = Cache::get('weather');
         } else {
