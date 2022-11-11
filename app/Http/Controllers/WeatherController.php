@@ -17,7 +17,7 @@ class WeatherController extends Controller
         if(Cache::get('weather')) {
             $data = Cache::get('weather');
         } else {
-            $url = 'https://v0.yiketianqi.com/free/day?appid=94184759&appsecret=pk7EJOLz&cityid=101010700&city=昌平';
+            $url = 'https://v0.yiketianqi.com/api?unescape=1&version=v9&appid=94184759&appsecret=pk7EJOLz&cityid=101010700&city=昌平';
             $data = $this->weather($url);
             Cache::put('weather',$data,3600);
         }
