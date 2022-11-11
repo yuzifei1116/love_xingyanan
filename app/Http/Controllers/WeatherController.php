@@ -24,7 +24,7 @@ class WeatherController extends Controller
             // 循环小时天气 组成实时气温
             foreach ($data['data'] as $key => $value) {
                 # code...
-                foreach ($value['hours'] as $k => $v) {
+                foreach ($value['hours'][0] as $k => $v) {
                     # code...
                     $h = intval($v['hours']);
                     if($h < 10) {
